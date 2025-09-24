@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    
+    <title> Welcome to Vina’s Website. </title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+   <header id = "header">
+       <div class="logo">
+           <i class="fas fa-map-marked-alt"></i>   
+           <span>Hello World!</span>
+       </div>
+       <nav>
+        <ul class="nav-menu">
+            <li class="nav-item"><a href="index.html" class="nav-link active">首頁</a></li>
+            <li class="nav-item"><a href="destinations.html" class="nav-link">目的地</a></li>
+            <li class="nav-item"><a href="about.html" class="nav-link">關於我</a></li>
+            <li class="nav-item"><a href="blog.html" class="nav-link">旅遊日記</a></li>
+            <li class="nav-item"><a href="contact.html" class="nav-link">聯絡我</a></li>
+        </ul>
+       </nav>
+   </header>
+   <section class = "hero">
+    <h1>探索世界的美麗</h1>
+    <p>ARASHI ARASHI FOR Dream~~</p>
+    <button id="exploreBtn" class = "hero-btn">開始探索</button>
+   </section>
+  <main  id = "main-content">
+    <div class="container">
+        <div class="content-wrapper">
+            <div class = "posts">
+            <h2>最新文章</h2>
+                <div class="posts-grid">
+                    <article class="post-card" style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
+                            <div class="post-image">
+                                <a href="kyoto-cherry-blossoms.html">
+                                    <img src="images/japan-kyoto.jpg" alt="京都櫻花季">
+                                </a>
+                            </div>
+                            <div class="post-content">
+                                <h3><a href="kyoto-cherry-blossoms.html">京都櫻花季：最美的粉色春天</a></h3>
+                                <div class="post-meta">
+                                    <span class="date"><i class="far fa-calendar"></i> 2024年4月15日</span>
+                                </div>
+                                <p class="post-excerpt">
+                                    京都的櫻花季是一年中最美的時刻，漫步在哲學之道，欣賞滿樹的櫻花飄落，體驗日本獨有的浪漫春色...
+                                </p>
+                                <div class="post-tags">
+                                    <span class="tag">日本</span>
+                                    <span class="tag">櫻花</span>
+                                    <span class="tag">文化</span>
+                                </div>
+                                <div class="post-actions">
+                                    <a href="kyoto-cherry-blossoms.html" class="read-more">閱讀全文 <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                    <article class="post-card" style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
+                        <div class="post-image">
+                            <img src="images/paris-family.jpg" alt="巴黎親子遊">
+                        </div>
+                        <div class="post-content">
+                            <h3>巴黎親子遊：與孩子共度的浪漫時光</h3>
+                            <div class="post-meta">
+                                <span class="date"><i class="far fa-calendar"></i> 2024年3月28日</span>
+                            </div>
+                            <p class="post-excerpt">
+                                帶著孩子遊巴黎並不是一件困難的事，從艾菲爾鐵塔到盧浮宮，每個角落都充滿了驚喜和學習的機會...
+                            </p>
+                            <div class="post-tags">
+                                <span class="tag">歐洲</span>
+                                <span class="tag">親子</span>
+                                <span class="tag">文化</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="post-card" style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
+                        <div class="post-image">
+                            <img src="images/tokyo-food.jpg" alt="東京美食">
+                        </div>
+                        <div class="post-content">
+                            <h3>東京美食之旅：從街頭小食到米其林</h3>
+                            <div class="post-meta">
+                                <span class="date"><i class="far fa-calendar"></i> 2024年3月10日</span>
+                            </div>
+                            <p class="post-excerpt">
+                                東京的美食文化豐富多元，從築地市場的新鮮海鮮到銀座的精緻料理，每一口都是對味蕾的極致享受...
+                            </p>
+                            <div class="post-tags">
+                                <span class="tag">日本</span>
+                                <span class="tag">美食</span>
+                                <span class="tag">文化</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+            <!-- 側邊欄 -->
+            <aside class="sidebar">
+                <div class="widget" style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
+                        <h3>標籤分類</h3>
+                        <div class="tags-cloud">
+                        </div>
+                    </div>
+            </aside>
+        </div>
+    </div>
+  </main>
+  <footer></footer>
+    <button id = "backToTop" class="back-to-top" style="position: fixed; bottom: 20px; right: 20px; background: rgb(44, 90, 160); color: white; border: none; border-radius: 50%; width: 50px; height: 50px; cursor: pointer; box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 10px; opacity: 0; transform: translateY(0px); transition: 0.3s; z-index: 1000;"> 
+        <i class="fas fa-arrow-up"> </i>
+    </button>
+   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+       let backToTopButton = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.style.opacity = '1';
+                backToTopButton.style.transform = 'translateY(0)';
+            } else {
+                backToTopButton.style.opacity = '0';
+                backToTopButton.style.transform = 'translateY(20px)';
+            }
+        });
+ 
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        document.getElementById('exploreBtn').addEventListener('click', scrollToContent);
+       function scrollToContent() {
+           document.getElementById('main-content').scrollIntoView({
+               behavior: 'smooth'
+           });
+       }
+
+      const hour = new Date().getHours();
+      const greetingElement = document.querySelector('.hero h1');
+      
+      if (hour < 6) {
+        greetingElement.textContent = '夜深了，準備下次旅行吧';
+      } else if (hour < 12) {
+        greetingElement.textContent = '早安！開始新的旅程';
+      } else if (hour < 18) {
+        greetingElement.textContent = '午安！探索世界的美麗';
+      } else {
+        greetingElement.textContent = '晚安！回味今日的美景';
+      }
+
+
+        /*    
+        // 取得純標籤文字（去除括號與數字）
+        let rawText = $(this).text();
+        let tagText = rawText.replace(/\s*\(\d+\)/, ''); // 例如 "日本 (5)" → "日本"
+    
+        // 顯示對應文章
+        if (tagText === '全部') {
+            $('.post-card').show();
+        } else {
+            $('.post-card').hide().filter(function() {
+                let tags = $(this).find('.post-tags .tag').map(function() {
+                    return $(this).text();
+                }).get();
+    
+                return tags.includes(tagText);
+            }).show();
+        }*/
+
+        
+   function assignEvent()
+       {
+        $('.tag-link').click(function(e){
+            e.preventDefault();
+            $('.tag-link').removeClass('active');
+            $(this).addClass('active');
+    
+            let tagText = $(this).text();
+            if (tagText === '全部')
+            {
+                $('.post-card').show();
+            } 
+            else
+            {
+                $('.post-card').hide();
+                $('.post-tags .tag').each(function() 
+                {
+                    if (tagText.indexOf($(this).text()) !== -1) 
+                    {
+                        $(this).parents('.post-card').show();
+                    }
+                 });
+            }
+            
+    });
+
+    }
+    $.ajax({
+      url: 'tags.json',
+      method: 'GET',
+      dataType: 'json',
+      success: function(data) {
+        var html = '';
+    
+        for (var i = 0; i < data.length; i++) 
+        {
+          var tag = data[i].tag;
+          var count = data[i].count;
+    
+          if (tag === '全部') {
+            html += '<a href="#" class="tag-link active">' + tag + '</a>';
+          } else {
+            html += '<a href="#" class="tag-link">' + tag + ' (' + count + ')</a>';
+          }
+        }
+    
+        $('.tags-cloud').html(html);
+          assignEvent();
+
+
+      },
+    
+      error: function() {
+        console.log('讀取失敗，請檢查 tags.json');
+      }
+    }); 
+    </script>
+</body>
+</html>
