@@ -12,7 +12,12 @@ namespace WebApplication2
         {
             var settings = new FriendlyUrlSettings();
             settings.AutoRedirectMode = RedirectMode.Permanent;
+
+            routes.MapPageRoute("ApiRoute",
+                "api/{url}",
+                "~/api.aspx");
             routes.EnableFriendlyUrls(settings);
+
         }
     }
 }

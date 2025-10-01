@@ -4,6 +4,7 @@ using System.Linq;
 using System;
 using System.IO;
 using System.Web;
+using System.Text;
 
 namespace WebApplication2
 {
@@ -11,14 +12,36 @@ namespace WebApplication2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //show article.json 
-            // 取得 App_Data\article.json 的絕對路徑
-            string jsonPath = Server.MapPath("~/App_Data/article.json");
-            // 讀取檔案內容
-            string jsonContent = File.ReadAllText(jsonPath);
-            // 輸出到網頁（Content-Type 設為 application/json）
+
+            Response.Clear();
             Response.ContentType = "application/json";
-            Response.Write(jsonContent);
+
+            string url = Page.RouteData.Values["url"] as string;
+            string method = Request.HttpMethod;
+            if (url == "article")
+            {
+                if (method == "GET")
+                {
+                    string jsonPath = Server.MapPath("~/App_Data/article.json");
+                    if (File.Exists(jsonPath))
+                    {
+                        string content = File.ReadAllText(jsonPath, Encoding.UTF8);
+                        Response.Write(content);
+                    }
+                    else
+
+                        Response.Write("[]");
+
+                }
+
+                else if (method == "POST")
+                {
+
+                }
+
+            }
+
+
             Response.End();
         }
     }

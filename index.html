@@ -153,7 +153,41 @@
         greetingElement.textContent = '午安！探索世界的美麗';
       } else {
         greetingElement.textContent = '晚安！回味今日的美景';
-      }
+        }
+
+       // greeting();
+        fetch('article.json')
+            .then(res => res.json())
+            .then(posts => renderPosts(posts));
+
+        function renderPosts(posts) {
+            const container = document.querySelector('.posts-grid');
+            container.innerHTML = posts.map(createPostCard).join('');
+        }
+
+
+        function createPostCard(post) {
+            return `
+            <article class="post-card">
+            <div class="post-image">
+                ${post.url ? `<a href="${post.url}"><img src="${post.image}" alt="${post.alt}"></a>` : `<img src="${post.image}" alt="${post.alt}">`}
+            </div>
+            <div class="post-content">
+                <h3>${post.url ? `<a href="${post.url}">${post.title}</a>` : post.title}</h3>
+                <div class="post-meta">
+                <span class="date"><i class="far fa-calendar"></i> ${post.date}</span>
+                </div>
+                <p class="post-excerpt">
+                ${post.content.substring(0, 60)}...
+                </p>
+                <div class="post-tags">
+                ${post.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                </div>
+                ${post.url ? `<div class="post-actions"><a href="${post.url}" class="read-more">閱讀全文 <i class="fas fa-arrow-right"></i></a></div>` : ''}
+            </div>
+            </article>
+        `;
+        }
 
 
         /*    
@@ -174,7 +208,37 @@
             }).show();
         }*/
 
-        
+
+
+        $(document).on('click', '.tag-link', function (e) {
+            e.preventDefault();
+
+            $('.tag-link').removeClass('active');
+            $(this).addClass('active');
+
+            let tagText = $(this).text();
+
+            if (tagText.indexOf('全部') !== -1) {
+                $('.post-card').show();
+            } else {
+                $('.post-card')
+                    .hide()
+                    .filter(function () {
+                        var tags = $(this).find('.post-tags .tag').map(function () {
+                            return $(this).text();
+                        }).get();
+
+                        for (let i = 0; i < tags.length; i++) {
+                            if (tagText.indexOf(tags[i]) !== -1) {
+                                return true;
+                            }
+                        }
+                        return false;
+                    })
+                    .show();
+            }
+        });
+
    function assignEvent()
        {
         $('.tag-link').click(function(e){
