@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>旅遊日記編輯器</title>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+</head>
+<body class="bg-light">
+    <div class="container py-4">
+        <h1 class="h3 mb-3">📝 新增旅遊日記</h1>
+
+        <div id="messageArea"></div>
+
+        <form method="POST" action="api/article" id="diaryForm">
+            <div class="mb-3">
+                <label for="title" class="form-label">標題 *</label>
+                <input id="title" name="title" class="form-control" maxlength="100" required />
+            </div>
+
+            <div class="mb-3">
+                <label for="date" class="form-label">日期 *</label>
+                <input id="date" name="date" type="date" class="form-control" required />
+            </div>
+
+            <div class="mb-3">
+                <label for="content" class="form-label">內容 *</label>
+                <textarea id="content" name="content" class="form-control" rows="6" required></textarea>
+            </div>
+
+            <div class="d-flex justify-content-end gap-2">
+                <button type="reset" class="btn btn-outline-secondary">清除</button>
+                <button type="submit" class="btn btn-primary">儲存</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const dateEl = document.getElementById('date');
+      if (dateEl)
+          dateEl.value = new Date().toISOString().split('T')[0];
+
+      const params = new URLSearchParams(window.location.search);
+      const msgArea = document.getElementById('messageArea');
+      if (params.get('success')) {
+        msgArea.innerHTML = `<div class="alert alert-success">${params.get('success')}</div>`;
+        window.history.replaceState({}, document.title, window.location.pathname);
+      } else if (params.get('error')) {
+        msgArea.innerHTML = `<div class="alert alert-danger">${params.get('error')}</div>`;
+        window.history.replaceState({}, document.title, window.location.pathname);
+      }
+    });
+    </script>
+</body>
+</html>

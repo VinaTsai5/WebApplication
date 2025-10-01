@@ -120,6 +120,7 @@
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
+    <Content Include="edit.html" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="images\hero-bg.jpg" />
